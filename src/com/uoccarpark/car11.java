@@ -62,7 +62,45 @@ System.out.println("\t"+"  Index: 370, 403, 426 ");
 						}
 								
 				}
+				else{
+					System.out.println("");
+					System.out.println("Sorry!!!!");
+					System.out.println("No parking space available.Please wait until a slot comes");
 
+					int inputNum2=0;
+
+					for(int h=0;h<list2.size();h++){
+						System.out.print(list2.get(h).no+" ");
+					}
+					System.out.println("  Cars are waiting to enter park");
+					System.out.println("Would you like to enter waiting list???");
+					System.out.println("1.yes\n2.no");
+					inputNum2=in.nextInt();
+
+
+					switch(inputNum2){
+						case 1:
+							System.out.println("Car number "+(list2.size()+11)+" is the next to enter Parking");
+							System.out.print("Enter the car number given above ");
+							int waitingCarNum;
+							waitingCarNum=in.nextInt();
+
+							if((list2.size()+11)==waitingCarNum)
+							{
+								for(int i=0;i<list2.size()-1;i++){
+									vehicle temp=list2.get(i);
+									System.out.println(temp.no);
+								}
+
+								list2.add(new vehicle(waitingCarNum));
+								System.out.println("Waiting List ");
+								for(int h=0;h<list2.size()-1;h++){
+									System.out.print(list2.get(h).no+" ");
+								}
+								System.out.println("");
+
+
+							}
 						}
 					}
 					catch(Exception e){
