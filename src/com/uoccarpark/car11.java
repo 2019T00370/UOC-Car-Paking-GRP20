@@ -101,6 +101,114 @@ System.out.println("\t"+"  Index: 370, 403, 426 ");
 
 
 							}
+							else{
+								System.out.println("Please enter correct car number ");
+							}
+
+
+							break;
+
+
+
+						case 2:
+							System.out.println("Thank you");
+							break;
+
+					}
+					break;
+
+
+				}
+				break;
+
+
+
+			  case 2:
+				  System.out.println("1.Depart from main park\n2.Depart From Waiting List");
+				  int inputNum3=in.nextInt();
+
+				  try{
+					  switch(inputNum3) {
+						  case 1:
+							  if(list1.size()==0){
+								  System.out.println("park is empty. If you wish you can Enter your car now");
+							  }
+							  else{
+								  System.out.println("Car numbers in the Car park.Choose yours ");
+								  vehicle qsa=null;
+								  int ssd=0;
+								  for(int h=0;h<list1.size();h++ ){
+									  qsa=list1.get(h);
+									  ssd=qsa.no;
+									  System.out.println("in Park "+ssd);
+								  }
+
+								  System.out.println("Enter the number of your car");
+								  int RemoveCar=0;
+								  RemoveCar = in.nextInt();
+
+								  int sd=0;
+
+								  int which=RemoveCar;// wanted car
+
+								  for(int h=0;h<list1.size();h++){
+									  vehicle qa=list1.get(h);
+									  if(qa.no!=which){
+										  qa=list1.get(h);
+										  continue;
+									  }
+
+									  else{
+										  vehicle kl=null;
+										  for(int u=0;u<list1.size()-1;u++){
+											  kl=list1.get(u);
+											  if(kl.no!=which){
+
+												  kl.mvs+=2;
+											  }
+											  else
+												  break;
+										  }
+										  for(int v=list1.size();(list1.get(h).no!=which);v--){
+
+											  kl.mvs+=1;
+										  }
+										  System.out.println("moves "+ list1.get(h).incmoves(1));
+										  list1.remove(h);
+										  break;
+									  }
+
+								  }
+
+
+
+
+								  if(list2.size()>0){
+									  System.out.println("So car number "+list2.getFirst()+"  to car park:");
+
+
+
+									  list1.add(new vehicle(list2.getFirst().no));
+									  list2.remove(0);
+
+									  System.out.println("New car list in car park : " + list1);
+									  System.out.println("");
+								  }
+								  else{
+									  System.out.println("No cars in waiting list to enter park");
+								  }
+
+							  }break;
+
+						  case 2: if(list2.size()==0){
+							  System.out.println("There is no cars waiting in the list");
+						  }
+						  else{
+							  System.out.println("Cars in waiting list"+list2);
+							  System.out.print("Enter your car number");
+							  int removeWaitCar=in.nextInt();
+						  }
+							  break;
 						}
 					}
 					catch(Exception e){
